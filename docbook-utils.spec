@@ -4,7 +4,7 @@ Summary(pl):	Skrypty do obróbki dokumentów DocBook
 Name:		docbook-utils
 Version:	0.6.9
 Release:	4
-LIcense:	Eric Bischoff, Mark Galassi, Jochem Huhmann, Steve Cheng, and Frederik Fouvry; GPL 2.0
+License:	Eric Bischoff, Mark Galassi, Jochem Huhmann, Steve Cheng, and Frederik Fouvry; GPL 2.0
 Group:		Applications/Publishing/SGML
 Group(de):	Applikationen/Publizieren/SGML
 Group(pl):	Aplikacje/Publikowanie/SGML
