@@ -14,6 +14,7 @@ Patch2:		%{name}-catalog.patch
 URL:		http://sources.redhat.com/docbook-tools/
 Requires:	docbook-style-dsssl >= 1.76-6
 Requires:	jadetex >= 2.5
+Requires:	tetex-fonts
 BuildRequires:	autoconf
 BuildRequires:	docbook-dtd31-sgml
 BuildRequires:	docbook-style-dsssl
