@@ -541,7 +541,7 @@
 
 ;;Use element ids as filenames?
 (define %use-id-as-filename%
- #t)
+ #f)
 
 
 ;;=========================
