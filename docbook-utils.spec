@@ -1,6 +1,6 @@
 Summary:	Shell scripts to manage DocBook documents.
 Name:		docbook-utils
-Version:	0.6.6
+Version:	0.6.9
 Release:	1
 Group:		Applications/Publishing/SGML
 Group(de):	Applikationen/Publizieren/SGML
