@@ -1,19 +1,17 @@
-diff -Nur --exclude *~ docbook-utils-0.6.9/bin/jw.in docbook-utils-0.6.9.new/bin/jw.in
---- docbook-utils-0.6.9/bin/jw.in	Wed Mar 21 14:28:22 2001
-+++ docbook-utils-0.6.9.new/bin/jw.in	Sun Dec  9 16:27:14 2001
-@@ -264,14 +264,7 @@
- # Set path to SGML catalogs (first try centralized catalog)
- case $SGML_STANDARD_CATALOGS in
-   yes)	export SGML_CATALOGS_DIR SGML_FILE SGML_XML
--	SGML_CENTRALIZED_CATALOG=`sh $SGML_FRONTEND centralized-catalog`
--	if [ -s $SGML_CENTRALIZED_CATALOG ]
--	then
--	  SGML_CATALOG_FILES=$SGML_CENTRALIZED_CATALOG
--	else
--	  SGML_CATALOG_FILES=`find $SGML_BASE_DIR -name catalog`
--	  SGML_CATALOG_FILES=`echo "$SGML_CATALOG_FILES" | tr [:space:] :`
+--- docbook-utils-0.6.10/frontends/docbook.in.wiget	Mon Apr 15 18:58:21 2002
++++ docbook-utils-0.6.10/frontends/docbook.in	Sun May 26 02:03:10 2002
+@@ -6,13 +6,7 @@
+ # Give the location of the centralized catalog
+ # First try the one with a version matching the version that is indicated in the document
+   centralized-catalog)
+-	SGML_VERSION=`grep -i '<!DOCTYPE' $SGML_FILE | head -n 1 | sed 's/\(V[0-9][\.0-9]*\).*$/\1/; s/^.* V\([0-9][\.0-9]*\)/\1/'`
+-	if [ -f "${SGML_CATALOGS_DIR}/${SGML_XML}-docbook-${SGML_VERSION}"*".cat" ]
+-	then echo "${SGML_CATALOGS_DIR}/${SGML_XML}-docbook-${SGML_VERSION}"*".cat"
+-	elif [ "${SGML_XML}" != "sgml" ]
+-	then echo "${SGML_CATALOGS_DIR}/${SGML_XML}-docbook.cat"
+-	else echo "${SGML_CATALOGS_DIR}/catalog"
 -	fi
-+        SGML_CATALOG_FILES="${SGML_CATALOGS_DIR}/catalog"
++	echo "${SGML_CATALOGS_DIR}/catalog"
  	;;
-   no)	SGML_CATALOG_FILES=""
- 	;;
+ # Find a stylesheet on the model "html/docbook.dsl" or "print/docbook.dsl"
+   style-sheet)
