@@ -32,7 +32,7 @@ innych formatów (HTML, RTF, PostScript...) i porównywaæ pliki SGML.
 %patch2 -p1
 
 %build
-autoconf
+%{__autoconf}
 %configure
 %{__make}
 
