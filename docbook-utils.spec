@@ -8,7 +8,7 @@ LIcense:	Eric Bischoff, Mark Galassi, Jochem Huhmann, Steve Cheng, and Frederik 
 Group:		Applications/Publishing/SGML
 Group(de):	Applikationen/Publizieren/SGML
 Group(pl):	Aplikacje/Publikowanie/SGML
-Source0:	%{name}-%{version}.tar.gz
+Source0:	ftp://ftp.kde.org/pub/kde/devel/docbook/SOURCES/%{name}-%{version}.tar.gz
 Patch0:		%{name}-@.patch
 Patch1:		%{name}-roff_includes_in_man_pages.patch
 Requires:	docbook-style-dsssl >= 1.49
