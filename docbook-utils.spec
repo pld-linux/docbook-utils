@@ -6,10 +6,6 @@ Version:	0.6.9
 Release:	5
 License:	Eric Bischoff, Mark Galassi, Jochem Huhmann, Steve Cheng, and Frederik Fouvry; GPL 2.0
 Group:		Applications/Publishing/SGML
-Group(de):	Applikationen/Publizieren/SGML
-Group(es):	Aplicaciones/Editoración/SGML
-Group(pl):	Aplikacje/Publikowanie/SGML
-Group(pt_BR):	Aplicações/Editoração/SGML
 Source0:	ftp://ftp.kde.org/pub/kde/devel/docbook/SOURCES/%{name}-%{version}.tar.gz
 Patch0:		%{name}-@.patch
 Patch1:		%{name}-roff_includes_in_man_pages.patch
