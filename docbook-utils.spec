@@ -17,7 +17,7 @@ Requires:	jadetex >= 2.5
 BuildRequires:	autoconf
 BuildRequires:	docbook-dtd31-sgml
 BuildRequires:	docbook-style-dsssl
-BuildRequires:	openjade >= 1.4-14.20020409
+BuildRequires:	openjade-devel >= 1.4-12.20020409
 Obsoletes:	docbook2X
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
