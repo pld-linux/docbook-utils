@@ -11,6 +11,7 @@ Group(pl):	Aplikacje/Publikowanie/SGML
 Source0:	ftp://ftp.kde.org/pub/kde/devel/docbook/SOURCES/%{name}-%{version}.tar.gz
 Patch0:		%{name}-@.patch
 Patch1:		%{name}-roff_includes_in_man_pages.patch
+Patch2:		%{name}-catalog.patch
 Requires:	docbook-style-dsssl >= 1.49
 Requires:	jadetex >= 2.5
 BuildRequires:	autoconf
@@ -30,6 +31,7 @@ innych formatów (HTML, RTF, PostScript...) i porównywaæ pliki SGML.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 autoconf
