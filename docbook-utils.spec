@@ -1,17 +1,19 @@
 %include	/usr/lib/rpm/macros.perl
-Summary:	Shell scripts to manage DocBook documents.
+Summary:	Shell scripts to manage DocBook documents
+Summary(pl):	Skrypty do obróbki dokumentów DocBook
 Name:		docbook-utils
 Version:	0.6.9
-Release:	2
+Release:	3
 LIcense:	Eric Bischoff, Mark Galassi, Jochem Huhmann, Steve Cheng, and Frederik Fouvry; GPL 2.0
 Group:		Applications/Publishing/SGML
 Group(de):	Applikationen/Publizieren/SGML
 Group(pl):	Aplikacje/Publikowanie/SGML
 Source0:	%{name}-%{version}.tar.gz
 Patch0:		%{name}-@.patch
-PAtch1:		%{name}-roff_includes_in_man_pages.patch
+Patch1:		%{name}-roff_includes_in_man_pages.patch
 Requires:	docbook-style-dsssl >= 1.49
 Requires:	jadetex >= 2.5
+BuildRequires:	autoconf
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -19,12 +21,17 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 These little scripts allow to convert easily DocBook files to other
 formats (HTML, RTF, PostScript...), and to compare SGML files.
 
+%description -l pl
+Te ma³e skrypty pozwalaj± w prosty sposób konwertowaæ pliki DocBook do
+innych formatów (HTML, RTF, PostScript...) i porównywaæ pliki SGML.
+
 %prep
 %setup -q
 %patch0 -p1
 %patch1 -p1
 
 %build
+autoconf
 %configure
 %{__make}
 
