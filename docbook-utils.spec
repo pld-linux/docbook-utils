@@ -1,7 +1,8 @@
+%include	/usr/lib/rpm/macros.perl
 Summary:	Shell scripts to manage DocBook documents.
 Name:		docbook-utils
 Version:	0.6.9
-Release:	1
+Release:	2
 LIcense:	Eric Bischoff, Mark Galassi, Jochem Huhmann, Steve Cheng, and Frederik Fouvry; GPL 2.0
 Group:		Applications/Publishing/SGML
 Group(de):	Applikationen/Publizieren/SGML
@@ -11,7 +12,6 @@ Patch0:		%{name}-@.patch
 PAtch1:		%{name}-roff_includes_in_man_pages.patch
 Requires:	docbook-style-dsssl >= 1.49
 Requires:	jadetex >= 2.5
-Requires:	perl-SGMLSpm >= 1.03ii
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
