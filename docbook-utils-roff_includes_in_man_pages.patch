@@ -1,0 +1,22 @@
+--- docbook-utils-0.6.9/doc/Makefile.am~	Wed May 23 17:01:12 2001
++++ docbook-utils-0.6.9/doc/Makefile.am	Sat Jun 16 05:09:51 2001
+@@ -4,11 +4,11 @@
+ 
+ install-data-local:
+ 	cd $(DESTDIR)/$(mandir)/man1 && ( \
+-	ln -sf jw.1 docbook2dvi.1; \
+-	ln -sf jw.1 docbook2html.1; \
+-	ln -sf jw.1 docbook2man.1; \
+-	ln -sf jw.1 docbook2pdf.1; \
+-	ln -sf jw.1 docbook2ps.1; \
+-	ln -sf jw.1 docbook2rtf.1; \
+-	ln -sf jw.1 docbook2tex.1; \
+-	ln -sf jw.1 docbook2texi.1)
++	echo ".so jw.1" > docbook2dvi.1; \
++	echo ".so jw.1" > docbook2html.1; \
++	echo ".so jw.1" > docbook2man.1; \
++	echo ".so jw.1" > docbook2pdf.1; \
++	echo ".so jw.1" > docbook2ps.1; \
++	echo ".so jw.1" > docbook2rtf.1; \
++	echo ".so jw.1" > docbook2tex.1; \
++	echo ".so jw.1" > docbook2texi.1)
