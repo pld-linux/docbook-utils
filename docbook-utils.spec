@@ -2,17 +2,20 @@
 Summary:	Shell scripts to manage DocBook documents
 Summary(pl):	Skrypty do obróbki dokumentów DocBook
 Name:		docbook-utils
-Version:	0.6.9
-Release:	5
+Version:	0.6.10
+Release:	0.1
 License:	Eric Bischoff, Mark Galassi, Jochem Huhmann, Steve Cheng, and Frederik Fouvry; GPL 2.0
 Group:		Applications/Publishing/SGML
-Source0:	ftp://ftp.kde.org/pub/kde/devel/docbook/SOURCES/%{name}-%{version}.tar.gz
-Patch0:		%{name}-@.patch
+Source0:	ftp://sources.redhat.com/pub/docbook-tools/new-trials/SOURCES/%{name}-%{version}.tar.gz
+Source1:	gdp-both.dsl
+Source2:	db2html
 Patch1:		%{name}-roff_includes_in_man_pages.patch
 Patch2:		%{name}-catalog.patch
-Requires:	docbook-style-dsssl >= 1.49
+Requires:	docbook-style-dsssl >= 1.76-6
 Requires:	jadetex >= 2.5
 BuildRequires:	autoconf
+BuildRequires:	openjade
+BuildRequires:	docbook-dtd31-sgml
 Obsoletes:	docbook2X
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -27,7 +30,6 @@ innych formatów (HTML, RTF, PostScript...) i porównywaæ pliki SGML.
 
 %prep
 %setup -q
-%patch0 -p1
 %patch1 -p1
 %patch2 -p1
 
@@ -39,29 +41,32 @@ innych formatów (HTML, RTF, PostScript...) i porównywaæ pliki SGML.
 %install
 rm -rf $RPM_BUILD_ROOT
 
-DESTDIR=$RPM_BUILD_ROOT
 %{__make} install \
-	prefix=$DESTDIR%{_prefix} \
-	mandir=$DESTDIR%{_mandir} \
-	docdir=$DESTDIR%{_datadir}/doc
+	DESTDIR=$RPM_BUILD_ROOT
 
 rm -f doc/HTML/Makefile*
 rm -f doc/HTML/*.in
 
-gzip -9nf NEWS README TODO
+install %{SOURCE1} $RPM_BUILD_ROOT/%{_datadir}/sgml/docbook/utils-%{version}/docbook-utils.dsl
+sed 's/^ "USletter"/ "A4"/' %{SOURCE1} > $RPM_BUILD_ROOT/%{_datadir}/sgml/docbook/utils-%{version}/docbook-utils-a4.dsl
+
+for util in dvi html pdf ps rtf man texi tex ; do
+	ln -sf docbook2${util} $RPM_BUILD_ROOT/%{_bindir}/db2${util}
+	echo '.so jw.1' >$RPM_BUILD_ROOT/%{_mandir}/man1/db2${util}.1
+done
+
+install -m755 %{SOURCE2} $RPM_BUILD_ROOT/%{_bindir}/db2html
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz doc/HTML
+%doc NEWS README TODO doc/HTML
 %attr(755,root,root) %{_bindir}/jw
 %attr(755,root,root) %{_bindir}/docbook2*
+%attr(755,root,root) %{_bindir}/db2*
 %attr(755,root,root) %{_bindir}/sgmldiff
-%{_datadir}/sgml/docbook/utils-%{version}/docbook-utils.dsl
-%{_datadir}/sgml/docbook/utils-%{version}/backends/*
-%{_datadir}/sgml/docbook/utils-%{version}/frontends/*
-%{_datadir}/sgml/docbook/utils-%{version}/helpers/*
+%{_datadir}/sgml/docbook/utils-%{version}
 %{_mandir}/man1/*
 %{_mandir}/man7/*
