@@ -12,13 +12,14 @@ Source2:	db2html
 Patch1:		%{name}-roff_includes_in_man_pages.patch
 Patch2:		%{name}-catalog.patch
 URL:		http://sources.redhat.com/docbook-tools/
-Requires:	docbook-style-dsssl >= 1.76-6
-Requires:	jadetex >= 2.5
-Requires:	tetex-fonts
 BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	docbook-dtd31-sgml
 BuildRequires:	docbook-style-dsssl
 BuildRequires:	openjade >= 1.4-12.20020409
+Requires:	docbook-style-dsssl >= 1.76-6
+Requires:	jadetex >= 2.5
+Requires:	tetex-fonts
 Obsoletes:	docbook2X
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -37,7 +38,7 @@ innych formatów (HTML, RTF, PostScript...) i porównywaæ pliki SGML.
 %patch2 -p1
 
 %build
-aclocal
+%{__aclocal}
 %{__autoconf}
 %{__automake}
 %configure
