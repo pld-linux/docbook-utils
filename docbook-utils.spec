@@ -3,7 +3,7 @@ Summary:	Shell scripts to manage DocBook documents
 Summary(pl):	Skrypty do obróbki dokumentów DocBook
 Name:		docbook-utils
 Version:	0.6.11
-Release:	1
+Release:	2
 License:	Eric Bischoff, Mark Galassi, Jochem Huhmann, Steve Cheng, and Frederik Fouvry; GPL 2.0
 Group:		Applications/Publishing/SGML
 Source0:	ftp://sources.redhat.com/pub/docbook-tools/new-trials/SOURCES/%{name}-%{version}.tar.gz
@@ -15,8 +15,9 @@ URL:		http://sources.redhat.com/docbook-tools/
 Requires:	docbook-style-dsssl >= 1.76-6
 Requires:	jadetex >= 2.5
 BuildRequires:	autoconf
-BuildRequires:	openjade
 BuildRequires:	docbook-dtd31-sgml
+BuildRequires:	docbook-style-dsssl
+BuildRequires:	openjade >= 1.4-14.20020409
 Obsoletes:	docbook2X
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
