@@ -14,6 +14,7 @@ Patch1:		%{name}-roff_includes_in_man_pages.patch
 Requires:	docbook-style-dsssl >= 1.49
 Requires:	jadetex >= 2.5
 BuildRequires:	autoconf
+Obsoletes:	docbook2X
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -47,13 +48,14 @@ DESTDIR=$RPM_BUILD_ROOT
 rm -f doc/HTML/Makefile*
 rm -f doc/HTML/*.in
 
+gzip -9nf NEWS README TODO
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README COPYING TODO
-%doc doc/HTML
+%doc *.gz doc/HTML
 %attr(755,root,root) %{_bindir}/jw
 %attr(755,root,root) %{_bindir}/docbook2*
 %attr(755,root,root) %{_bindir}/sgmldiff
