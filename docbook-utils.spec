@@ -3,7 +3,7 @@ Summary:	Shell scripts to manage DocBook documents
 Summary(pl):	Skrypty do obróbki dokumentów DocBook
 Name:		docbook-utils
 Version:	0.6.10
-Release:	0.1
+Release:	1
 License:	Eric Bischoff, Mark Galassi, Jochem Huhmann, Steve Cheng, and Frederik Fouvry; GPL 2.0
 Group:		Applications/Publishing/SGML
 Source0:	ftp://sources.redhat.com/pub/docbook-tools/new-trials/SOURCES/%{name}-%{version}.tar.gz
