@@ -7,6 +7,7 @@ Release:	2
 License:	Eric Bischoff, Mark Galassi, Jochem Huhmann, Steve Cheng, and Frederik Fouvry; GPL 2.0
 Group:		Applications/Publishing/SGML
 Source0:	ftp://sources.redhat.com/pub/docbook-tools/new-trials/SOURCES/%{name}-%{version}.tar.gz
+# Source0-md5:	e8541700e40e661ee3048617ec53dccf
 Source1:	gdp-both.dsl
 Source2:	db2html
 Patch1:		%{name}-roff_includes_in_man_pages.patch
