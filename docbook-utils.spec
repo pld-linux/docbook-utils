@@ -2,17 +2,18 @@ Summary:	Shell scripts to manage DocBook documents.
 Name:		docbook-utils
 Version:	0.6.9
 Release:	1
+LIcense:	Eric Bischoff, Mark Galassi, Jochem Huhmann, Steve Cheng, and Frederik Fouvry; GPL 2.0
 Group:		Applications/Publishing/SGML
 Group(de):	Applikationen/Publizieren/SGML
 Group(pl):	Aplikacje/Publikowanie/SGML
-Copyright:	Eric Bischoff, Mark Galassi, Jochem Huhmann, Steve Cheng, and Frederik Fouvry; GPL 2.0
 Source0:	%{name}-%{version}.tar.gz
+Patch0:		%{name}-@.patch
+PAtch1:		%{name}-roff_includes_in_man_pages.patch
 Requires:	docbook-style-dsssl >= 1.49
 Requires:	jadetex >= 2.5
 Requires:	perl-SGMLSpm >= 1.03ii
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 BuildArch:	noarch
-
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 These little scripts allow to convert easily DocBook files to other
@@ -20,15 +21,16 @@ formats (HTML, RTF, PostScript...), and to compare SGML files.
 
 %prep
 %setup -q
-
+%patch0 -p1
+%patch1 -p1
 
 %build
-./configure --prefix=%{_prefix} --mandir=%{_mandir}
+%configure
 %{__make}
-
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 DESTDIR=$RPM_BUILD_ROOT
 %{__make} install \
 	prefix=$DESTDIR%{_prefix} \
@@ -40,7 +42,6 @@ rm -f doc/HTML/*.in
 
 %clean
 rm -rf $RPM_BUILD_ROOT
-
 
 %files
 %defattr(644,root,root,755)
