@@ -1,0 +1,19 @@
+diff -Nur --exclude *~ docbook-utils-0.6.9/bin/jw.in docbook-utils-0.6.9.new/bin/jw.in
+--- docbook-utils-0.6.9/bin/jw.in	Wed Mar 21 14:28:22 2001
++++ docbook-utils-0.6.9.new/bin/jw.in	Sun Dec  9 16:27:14 2001
+@@ -264,14 +264,7 @@
+ # Set path to SGML catalogs (first try centralized catalog)
+ case $SGML_STANDARD_CATALOGS in
+   yes)	export SGML_CATALOGS_DIR SGML_FILE SGML_XML
+-	SGML_CENTRALIZED_CATALOG=`sh $SGML_FRONTEND centralized-catalog`
+-	if [ -s $SGML_CENTRALIZED_CATALOG ]
+-	then
+-	  SGML_CATALOG_FILES=$SGML_CENTRALIZED_CATALOG
+-	else
+-	  SGML_CATALOG_FILES=`find $SGML_BASE_DIR -name catalog`
+-	  SGML_CATALOG_FILES=`echo "$SGML_CATALOG_FILES" | tr [:space:] :`
+-	fi
++        SGML_CATALOG_FILES="${SGML_CATALOGS_DIR}/catalog"
+ 	;;
+   no)	SGML_CATALOG_FILES=""
+ 	;;
