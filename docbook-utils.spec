@@ -53,15 +53,15 @@ rm -rf $RPM_BUILD_ROOT
 rm -f doc/HTML/Makefile*
 rm -f doc/HTML/*.in
 
-install %{SOURCE1} $RPM_BUILD_ROOT/%{_datadir}/sgml/docbook/utils-%{version}/docbook-utils.dsl
-sed 's/^ "USletter"/ "A4"/' %{SOURCE1} > $RPM_BUILD_ROOT/%{_datadir}/sgml/docbook/utils-%{version}/docbook-utils-a4.dsl
+install %{SOURCE1} $RPM_BUILD_ROOT%{_datadir}/sgml/docbook/utils-%{version}/docbook-utils.dsl
+sed 's/^ "USletter"/ "A4"/' %{SOURCE1} > $RPM_BUILD_ROOT%{_datadir}/sgml/docbook/utils-%{version}/docbook-utils-a4.dsl
 
 for util in dvi html pdf ps rtf man texi tex ; do
-	ln -sf docbook2${util} $RPM_BUILD_ROOT/%{_bindir}/db2${util}
-	echo '.so jw.1' >$RPM_BUILD_ROOT/%{_mandir}/man1/db2${util}.1
+	ln -sf docbook2${util} $RPM_BUILD_ROOT%{_bindir}/db2${util}
+	echo '.so jw.1' >$RPM_BUILD_ROOT%{_mandir}/man1/db2${util}.1
 done
 
-install -m755 %{SOURCE2} $RPM_BUILD_ROOT/%{_bindir}/db2html
+install -m755 %{SOURCE2} $RPM_BUILD_ROOT%{_bindir}/db2html
 
 %clean
 rm -rf $RPM_BUILD_ROOT
