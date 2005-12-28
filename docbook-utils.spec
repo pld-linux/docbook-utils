@@ -21,6 +21,7 @@ BuildRequires:	openjade >= 1.4-12.20020409
 BuildRequires:	rpm-perlprov
 Requires:	docbook-style-dsssl >= 1.76-6
 Requires:	jadetex >= 2.5
+Requires:	openjade
 Requires:	perl-SGMLS
 Requires:	which
 Obsoletes:	docbook2X
