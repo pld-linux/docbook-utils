@@ -65,7 +65,7 @@ for util in dvi html pdf ps rtf man texi tex ; do
 	echo '.so jw.1' >$RPM_BUILD_ROOT%{_mandir}/man1/db2${util}.1
 done
 
-install -m755 %{SOURCE2} $RPM_BUILD_ROOT%{_bindir}/db2html
+install %{SOURCE2} $RPM_BUILD_ROOT%{_bindir}/db2html
 
 %clean
 rm -rf $RPM_BUILD_ROOT
