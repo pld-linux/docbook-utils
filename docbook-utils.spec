@@ -1,6 +1,6 @@
 %include	/usr/lib/rpm/macros.perl
 Summary:	Shell scripts to manage DocBook documents
-Summary(pl):	Skrypty do obróbki dokumentów DocBook
+Summary(pl.UTF-8):   Skrypty do obrÃ³bki dokumentÃ³w DocBook
 Name:		docbook-utils
 Version:	0.6.14
 Release:	2
@@ -32,9 +32,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 These little scripts allow to convert easily DocBook files to other
 formats (HTML, RTF, PostScript...), and to compare SGML files.
 
-%description -l pl
-Te ma³e skrypty pozwalaj± w prosty sposób konwertowaæ pliki DocBook do
-innych formatów (HTML, RTF, PostScript...) i porównywaæ pliki SGML.
+%description -l pl.UTF-8
+Te maÅ‚e skrypty pozwalajÄ… w prosty sposÃ³b konwertowaÄ‡ pliki DocBook do
+innych formatÃ³w (HTML, RTF, PostScript...) i porÃ³wnywaÄ‡ pliki SGML.
 
 %prep
 %setup -q
