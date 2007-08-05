@@ -1,9 +1,10 @@
+# TODO - doc
 %include	/usr/lib/rpm/macros.perl
 Summary:	Shell scripts to manage DocBook documents
 Summary(pl.UTF-8):	Skrypty do obróbki dokumentów DocBook
 Name:		docbook-utils
 Version:	0.6.14
-Release:	2
+Release:	3
 License:	Eric Bischoff, Mark Galassi, Jochem Huhmann, Steve Cheng, and Frederik Fouvry; GPL 2.0
 Group:		Applications/Publishing/SGML
 Source0:	ftp://sources.redhat.com/pub/docbook-tools/new-trials/SOURCES/%{name}-%{version}.tar.gz
