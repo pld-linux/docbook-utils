@@ -1,0 +1,33 @@
+--- docbook-utils-0.6.14.orig/helpers/docbook2man-spec.pl
++++ docbook-utils-0.6.14/helpers/docbook2man-spec.pl
+@@ -1199,8 +1199,8 @@
+ 	$_[0] =~ s/\\/\\\\/g;
+ 
+ 	# Escape dots and single quotes in column 1
+-	$_[0] =~ s/^\./\\\&\./;
+-	$_[0] =~ s/^\'/\\\&\'/;
++	$_[0] =~ s/^[ \t]*\./\\\&\./;
++	$_[0] =~ s/^[ \t]*\'/\\\&\'/;
+ 
+ 	# In non-'pre'-type elements:
+ 	if(!$nocollapse_whitespace) {
+--- docbook-utils-0.6.14.orig/helpers/docbook2texi-spec.pl
++++ docbook-utils-0.6.14/helpers/docbook2texi-spec.pl
+@@ -774,7 +774,7 @@
+ ## Print the URL
+ sgml('<ULINK>', sub {
+ 	if($skip_inline++) { return; }	# hopefully doesn't happen
+-	output '@uref{', output $_[0]->attribute('URL'), ', '
++	output '@uref{', $_[0]->attribute('URL')->value, ', '
+ });
+ sgml('</ULINK>', sub {
+ 	output '}' unless --$skip_inline;
+@@ -807,6 +807,7 @@
+ sgml('|[lt    ]|', "<");
+ sgml('|[gt    ]|', ">");
+ sgml('|[amp   ]|', "&");
++sgml('|[ndash ]|', "-");
+ 
+ #
+ # Default handlers (uncomment these if needed).  Right now, these are set
+
