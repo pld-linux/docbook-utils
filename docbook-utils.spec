@@ -4,7 +4,7 @@ Summary:	Shell scripts to manage DocBook documents
 Summary(pl.UTF-8):	Skrypty do obróbki dokumentów DocBook
 Name:		docbook-utils
 Version:	0.6.14
-Release:	4
+Release:	5
 License:	Eric Bischoff, Mark Galassi, Jochem Huhmann, Steve Cheng, and Frederik Fouvry; GPL 2.0
 Group:		Applications/Publishing/SGML
 Source0:	ftp://sources.redhat.com/pub/docbook-tools/new-trials/SOURCES/%{name}-%{version}.tar.gz
@@ -14,6 +14,7 @@ Source2:	db2html
 Patch1:		%{name}-roff_includes_in_man_pages.patch
 Patch2:		%{name}-catalog.patch
 Patch3:		%{name}-debian.patch
+Patch4:		%{name}-grep-2.7.patch
 URL:		http://sources.redhat.com/docbook-tools/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -43,6 +44,7 @@ innych formatów (HTML, RTF, PostScript...) i porównywać pliki SGML.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
 
 %build
 %{__aclocal}
