@@ -22,6 +22,7 @@ BuildRequires:	docbook-dtd31-sgml
 BuildRequires:	docbook-style-dsssl
 BuildRequires:	grep >= 2:2.7
 BuildRequires:	openjade >= 1.4-12.20020409
+BuildRequires:	perl-SGMLS
 BuildRequires:	rpm-perlprov
 Requires:	docbook-style-dsssl >= 1.76-6
 Requires:	jadetex >= 2.5
