@@ -1,5 +1,4 @@
 # TODO - doc
-%include	/usr/lib/rpm/macros.perl
 Summary:	Shell scripts to manage DocBook documents
 Summary(pl.UTF-8):	Skrypty do obróbki dokumentów DocBook
 Name:		docbook-utils
