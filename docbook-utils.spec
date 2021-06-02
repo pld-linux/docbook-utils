@@ -3,7 +3,7 @@ Summary:	Shell scripts to manage DocBook documents
 Summary(pl.UTF-8):	Skrypty do obróbki dokumentów DocBook
 Name:		docbook-utils
 Version:	0.6.14
-Release:	5
+Release:	6
 License:	Eric Bischoff, Mark Galassi, Jochem Huhmann, Steve Cheng, and Frederik Fouvry; GPL 2.0
 Group:		Applications/Publishing/SGML
 Source0:	ftp://sources.redhat.com/pub/docbook-tools/new-trials/SOURCES/%{name}-%{version}.tar.gz
@@ -28,7 +28,6 @@ Requires:	jadetex >= 2.5
 Requires:	openjade
 Requires:	perl-SGMLS
 Requires:	which
-Obsoletes:	docbook2X
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -60,8 +59,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm -f doc/HTML/Makefile*
-rm -f doc/HTML/*.in
+%{__rm} doc/HTML/Makefile*
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_datadir}/sgml/docbook/utils-%{version}/docbook-utils.dsl
 sed 's/^ "USletter"/ "A4"/' %{SOURCE1} > $RPM_BUILD_ROOT%{_datadir}/sgml/docbook/utils-%{version}/docbook-utils-a4.dsl
@@ -73,16 +71,23 @@ done
 
 install %{SOURCE2} $RPM_BUILD_ROOT%{_bindir}/db2html
 
+# packaged as %doc
+%{__rm} -r $RPM_BUILD_ROOT%{_prefix}/doc/html
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
 %doc NEWS README TODO doc/HTML
-%attr(755,root,root) %{_bindir}/jw
-%attr(755,root,root) %{_bindir}/docbook2*
 %attr(755,root,root) %{_bindir}/db2*
+%attr(755,root,root) %{_bindir}/docbook2*
+%attr(755,root,root) %{_bindir}/jw
 %attr(755,root,root) %{_bindir}/sgmldiff
 %{_datadir}/sgml/docbook/utils-%{version}
-%{_mandir}/man1/*
-%{_mandir}/man7/*
+%{_mandir}/man1/db2*.1*
+%{_mandir}/man1/docbook2*.1*
+%{_mandir}/man1/jw.1*
+%{_mandir}/man1/sgmldiff.1*
+%{_mandir}/man7/backend-spec.7*
+%{_mandir}/man7/frontend-spec.7*
